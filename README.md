@@ -1,7 +1,7 @@
 # Checkout Flow Project
 
 This small project shows a multi-step checkout flow.
-It uses `index.html` for the page, `style.css` for the styling, and `script.js` for navigation, validation, and payment simulation.
+It uses `index.html` for the structure, `style.css` for the styling, and `script.js` for navigation, validation, and payment simulation.
 
 ## What this project is
 
