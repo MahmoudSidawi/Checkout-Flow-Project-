@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Checkout</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="steps">
+    <div class="step active" id="step-summary">1. Summary</div>
+    <div class="step" id="step-personal">2. Personal</div>
+    <div class="step" id="step-address">3. Address</div>
+    <div class="step" id="step-payment">4. Payment</div>
+    <div class="step" id="step-confirmation">5. Confirm</div>
+  </div>
+
+  <div class="page active" id="page-summary">
+    <div class="card">
+      <h2>Order Summary</h2>
+      <table class="summary-table">
+        <tr><td>Running Shoes (x1)</td><td>$89.99</td></tr>
+        <tr><td>Sports Socks (x2)</td><td>$12.99</td></tr>
+        <tr><td>Shipping</td><td>$5.00</td></tr>
+        <tr class="total-row"><td>Total</td><td>$107.98</td></tr>
+      </table>
+      <button class="btn" id="to-personal-btn">Continue to Personal Info</button>
+    </div>
+  </div>
+
+  <div class="page" id="page-personal">
+    <div class="card">
+      <h2>Personal Information</h2>
+      
+      <div class="field row">
+        <div class="sub-field">
+          <label for="firstname">First Name</label>
+          <input type="text" id="firstname" placeholder="John" />
+          <div class="error-msg" id="firstname-error"></div>
+        </div>
+        <div class="sub-field">
+          <label for="lastname">Last Name</label>
+          <input type="text" id="lastname" placeholder="Doe" />
+          <div class="error-msg" id="lastname-error"></div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" placeholder="john@example.com" />
+        <div class="error-msg" id="email-error"></div>
+      </div>
+
+      <div class="field">
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" placeholder="+1 555 000 0000" />
+        <div class="error-msg" id="phone-error"></div>
+      </div>
+
+      <button class="btn" id="to-address-btn">Continue to Address</button>
+      <button class="btn btn-secondary" id="back-to-summary-btn">Back</button>
+    </div>
+  </div>
+
+  <div class="page" id="page-address">
+    <div class="card">
+      <h2>Shipping Address</h2>
+      <div class="field">
+        <label for="street">Street Address</label>
+        <input type="text" id="street" placeholder="123 Main St" />
+        <div class="error-msg" id="street-error"></div>
+      </div>
+      <div class="field">
+        <label for="city">City</label>
+        <input type="text" id="city" placeholder="New York" />
+        <div class="error-msg" id="city-error"></div>
+      </div>
+      <div class="field">
+        <label for="zipcode">Zip Code</label>
+        <input type="text" id="zipcode" placeholder="10001" />
+        <div class="error-msg" id="zipcode-error"></div>
+      </div>
+      <button class="btn" id="to-payment-btn">Continue to Payment</button>
+      <button class="btn btn-secondary" id="back-to-personal-btn">Back</button>
+    </div>
+  </div>
+
+  <div class="page" id="page-payment">
+    <div class="card">
+      <h2>Payment Method</h2>
+      <div class="field">
+        <label for="cardnumber">Card Number</label>
+        <input type="text" id="cardnumber" maxlength="16" placeholder="4111222233334444" />
+        <div class="error-msg" id="cardnumber-error"></div>
+      </div>
+      <div class="field row">
+        <div class="sub-field">
+          <label for="cardexpiry">Expiry Date</label>
+          <input type="text" id="cardexpiry" maxlength="5" placeholder="MM/YY" />
+          <div class="error-msg" id="cardexpiry-error"></div>
+        </div>
+        <div class="sub-field">
+          <label for="cardcvv">CVV</label>
+          <input type="text" id="cardcvv" maxlength="4" placeholder="123" />
+          <div class="error-msg" id="cardcvv-error"></div>
+        </div>
+      </div>
+      <button class="btn" id="to-confirmation-btn">Continue to Confirmation</button>
+      <button class="btn btn-secondary" id="back-to-address-btn">Back</button>
+    </div>
+  </div>
+
+  <div class="page" id="page-confirmation">
+    <div class="card">
+      <h2>Review Your Order</h2>
+      
+      <h3>Items Ordered</h3>
+      <table class="summary-table">
+        <tr><td>Running Shoes (x1)</td><td>$89.99</td></tr>
+        <tr><td>Sports Socks (x2)</td><td>$12.99</td></tr>
+        <tr><td>Shipping</td><td>$5.00</td></tr>
+        <tr class="total-row"><td>Total Due</td><td>$107.98</td></tr>
+      </table>
+      
+      <h3>Personal Details</h3>
+      <table class="confirm-table">
+        <tr><td>Name:</td><td id="confirm-name">-</td></tr>
+        <tr><td>Email:</td><td id="confirm-email">-</td></tr>
+        <tr><td>Phone:</td><td id="confirm-phone">-</td></tr>
+      </table>
+
+      <h3>Shipping Destination</h3>
+      <table class="confirm-table">
+        <tr><td>Address:</td><td id="confirm-street">-</td></tr>
+        <tr><td>City:</td><td id="confirm-city">-</td></tr>
+        <tr><td>Zip Code:</td><td id="confirm-zip">-</td></tr>
+      </table>
+
+      <h3>Payment Info</h3>
+      <table class="confirm-table">
+        <tr><td>Card Source:</td><td id="confirm-card">-</td></tr>
+      </table>
+
+      <button class="btn" id="submit-order-btn">Pay Now ($107.98)</button>
+      <button class="btn btn-secondary" id="back-to-payment-btn">Back</button>
+    </div>
+  </div>
+
+  <div class="page" id="page-status">
+    <div class="card">
+      
+      <div id="status-processing" class="status-screen">
+        <h2>Processing Payment...</h2>
+        <p>Please wait while we authorize your card details.</p>
+        <div class="spinner"></div>
+      </div>
+
+      <div id="status-success" class="status-screen success" style="display: none;">
+        <div class="status-icon">✔</div>
+        <h2>Order Successful!</h2>
+        <p>Thank you for your purchase. Your receipt has been sent via email.</p>
+      </div>
+
+      <div id="status-error" class="status-screen error" style="display: none;">
+        <div class="status-icon">✖</div>
+        <h2>Payment Declined</h2>
+        <p>The transaction failed. Please check your credentials.</p>
+        <button class="btn" id="retry-payment-btn">Try Again</button>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+
+</body>
+</html>
